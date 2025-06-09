@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>@Carlxx_Bns | Shekel Calculator</title>
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif;
+      background-color: #def2ff;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .logo {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+
+    .calculator {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 20px;
+      width: 80%;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .result {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .pubmat {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="Copilot_20250608_143520.png" alt="@Carlxx_Bns Logo" class="logo">
+
+  <div class="calculator">
+    <h2>Grow A Garden Shekel Calculator</h2>
+    <input type="number" id="pesosInput" placeholder="Enter amount in ₱">
+    
+    <div class="result">
+      <p><strong>Shekels (Trillions):</strong> <span id="shekelsOutput">0</span></p>
+      <p><strong>Fruit:</strong> <span id="fruitOutput">0</span></p>
+      <p>💸 Payment method: GCash</p>
+    </div>
+  </div>
+
+  <img src="Untitled12_20250608211703.jpg" alt="Pricelist" class="pubmat">
+
+  <script>
+    const pesosInput = document.getElementById('pesosInput');
+    const shekelsOutput = document.getElementById('shekelsOutput');
+    const fruitOutput = document.getElementById('fruitOutput');
+
+    pesosInput.addEventListener('input', () => {
+      const pesos = parseFloat(pesosInput.value) || 0;
+      const shekels = pesos / 10; // ₱10 per 1 trillion
+      const fruit = pesos / 15;
+
+      shekelsOutput.textContent = shekels.toFixed(2);
+      fruitOutput.textContent = Math.floor(fruit);
+    });
+  </script>
+
+</body>
+</html>
