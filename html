@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Boost Calculator | Carlxx_Bns</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', cursive;
+      background: url('your-background-image-url.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    .container {
+      max-width: 500px;
+      margin: 5% auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 4px solid #ffe600;
+      padding: 20px;
+      text-align: center;
+      border-radius: 20px;
+    }
+    h1 {
+      font-size: 16px;
+    }
+    label, select, input {
+      display: block;
+      margin: 10px auto;
+      font-size: 14px;
+    }
+    input[type="number"] {
+      padding: 5px;
+      width: 80%;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #ffc800;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #00ff88;
+    }
+    .logo {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="your-logo-url.png" alt="Carlxx_Bns Logo">
+    <h1>Age Boost Calculator</h1><label for="petAge">Enter Pet Age:</label>
+<input type="number" id="petAge" min="1" max="50">
+
+<label for="petType">Select Pet Type:</label>
+<select id="petType">
+  <option value="noCooldown">No Cooldown</option>
+  <option value="cooldown">With Cooldown</option>
+</select>
+
+<button onclick="calculateCost()">Calculate</button>
+<div class="result" id="result"></div>
+
+  </div>  <script>
+    function calculateCost() {
+      const age = parseInt(document.getElementById('petAge').value);
+      const type = document.getElementById('petType').value;
+      let cost = 0;
+
+      if (isNaN(age) || age < 1 || age > 50) {
+        document.getElementById('result').textContent = 'Please enter a valid age between 1 and 50.';
+        return;
+      }
+
+      if (type === 'noCooldown') {
+        if (age <= 40) {
+          cost = age * 1;
+        } else {
+          cost = 40 + ((age - 40) * 2);
+        }
+      } else if (type === 'cooldown') {
+        cost = age * 1;
+      }
+
+      document.getElementById('result').textContent = `Total
